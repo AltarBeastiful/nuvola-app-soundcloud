@@ -1,0 +1,13 @@
+{
+    "id": "soundcloud",
+    "name": "SoundCloud",
+    "home_url": "http://soundcloud.com/",
+    "allowed_uri": "(https?://soundcloud\.com/.*) || https://accounts.google.com/.*",
+    "maintainer_name": "Rémi Benoit",
+    "maintainer_link": "https://github.com/AltarBeastiful/nuvola-app-soundcloud",
+    "version_major": 1,
+    "version_minor": 0,
+    "api_major": 3,
+    "api_minor": 0,
+    "categories": "AudioVideo;Audio;"
+}
