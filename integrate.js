@@ -75,8 +75,15 @@ WebApp.update = function()
         setTimeout(this.update.bind(this), 500);
         return;
     }
+    var track = {
+        title: null,
+        artist: null,
+        album: null,
+        artLocation: null
+    }
+
     if (this.playButton.getAttribute("tabindex") == "-1") {
-        player.setTrack(null);
+        player.setTrack(track);
         player.setPlaybackState(Nuvola.PlaybackState.UNKNOWN);
         player.setCanGoPrev(false);
         player.setCanGoNext(false);
@@ -90,13 +97,6 @@ WebApp.update = function()
     var canPrev = (this.previousButton.getAttribute("tabindex") == "-1");
     var canNext = (this.nextButton.getAttribute("tabindex") == "-1");
     var state = this.playButton.classList.contains("playing") ? PlaybackState.PLAYING : PlaybackState.PAUSED;
-
-    var track = {
-        title: null,
-        artist: null,
-        album: null,
-        artLocation: null
-    }
 
     var titleNode = document.querySelector(".playbackSoundBadge__title");
     if (titleNode) {
