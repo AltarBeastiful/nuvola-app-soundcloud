@@ -32,7 +32,7 @@ help:
 
 build:
 
-install: LICENSE metadata.json integrate.js
+install: LICENSE metadata.json integrate.js icon.png
 	install -vCd $(DEST)/$(APP_ID)
 	install -vC $^ $(DEST)/$(APP_ID)
 
