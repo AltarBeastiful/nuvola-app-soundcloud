@@ -102,7 +102,8 @@ WebApp.update = function()
     if (titleNode) {
         track.title = titleNode.getAttribute("title");
 
-        var artist = document.title.substring(track.title.length + 6);
+        var artist = document.title.replace(" on SoundCloud - Listen to music", "");
+        artist = artist.substring(track.title.length + 6);
         if (artist && artist.length > 0)
             track.artist = artist
 
