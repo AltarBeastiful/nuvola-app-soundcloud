@@ -94,8 +94,8 @@ WebApp.update = function()
         return;
     }
 
-    var canPrev = (this.previousButton.getAttribute("tabindex") == "-1");
-    var canNext = (this.nextButton.getAttribute("tabindex") == "-1");
+    var canPrev = (this.previousButton.getAttribute("tabindex") != "-1");
+    var canNext = (this.nextButton.getAttribute("tabindex") != "-1");
     var state = this.playButton.classList.contains("playing") ? PlaybackState.PLAYING : PlaybackState.PAUSED;
 
     var titleNode = document.querySelector(".playbackSoundBadge__title");
