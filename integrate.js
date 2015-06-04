@@ -34,6 +34,7 @@ var player = Nuvola.$object(Nuvola.MediaPlayer);
 // Handy aliases
 var PlaybackState = Nuvola.PlaybackState;
 var PlayerAction = Nuvola.PlayerAction;
+var PlayerCurrentArtist = null;
 
 // Create new WebApp prototype
 var WebApp = Nuvola.$WebApp();
@@ -102,10 +103,18 @@ WebApp.update = function()
     if (titleNode) {
         track.title = titleNode.getAttribute("title");
 
-        var artist = document.title.replace(" on SoundCloud - Listen to music", "");
-        artist = artist.substring(track.title.length + 6);
-        if (artist && artist.length > 0)
-            track.artist = artist
+        // Only fetch the artist from the title, if the track is currently playing.
+        // If we're not playing, it disappears from the title, and we should keep the previous title.
+        if (state === PlaybackState.PLAYING) {
+            var artist = document.title.replace(" on SoundCloud - Listen to music", "");
+            artist = artist.substring(track.title.length + 6);
+            if (artist && artist.length > 0) {
+                track.artist = artist
+                PlayerCurrentArtist = artist;
+            }
+        } else {
+          track.artist = PlayerCurrentArtist;
+        }
 
         var artUrl = document.querySelector(".playbackSoundBadge__avatar").children[0].children[0].style.backgroundImage;
         if (artUrl)
