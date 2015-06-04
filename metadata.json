@@ -4,7 +4,7 @@
     "home_url": "http://soundcloud.com/",
     "allowed_uri": "https?://soundcloud\\.com",
     "maintainer_name": "Rémi Benoit",
-    "maintainer_link": "https://github.com/AltarBeastiful/nuvola-app-soundcloud",
+    "maintainer_link": "https://github.com/AltarBeastiful",
     "version_major": 1,
     "version_minor": 0,
     "api_major": 3,
